@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diablocoin (DBC)</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        .container {
+            padding: 20px;
+        }
+        .title {
+            color: #ff3333;
+            font-size: 2em;
+            margin-top: 20px;
+        }
+        .button {
+            background-color: #ff3333;
+            border: none;
+            color: white;
+            padding: 15px 30px;
+            text-align: center;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 20px 0;
+        }
+        .button:hover {
+            background-color: #cc0000;
+        }
+        .section {
+            margin: 30px 0;
+        }
+        .section h2 {
+            color: white;
+        }
+        .tokenomics {
+            text-align: left;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        a {
+            color: #ff3333;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Diablocoin (DBC)</div>
+        <p>Die Zukunft der dezentralen Macht auf der Binance Smart Chain</p>
+        <button class="button" onclick="connectWallet()">Wallet mit MetaMask verbinden</button>
+
+        <div class="section">
+            <h2>Tokenomics</h2>
+            <div class="tokenomics">
+                <ul>
+                    <li>Total Supply: 100,000,000 DBC</li>
+                    <li>3% Burn bei jeder Transaktion</li>
+                    <li>3% Entwickler (0x2D64DeFb96958fD2C4266551bA2545...)</li>
+                    <li>1% Airdrop Pool</li>
+                    <li>15 Mio. Entwickler-Tokens gesperrt (3 Monate)</li>
+                    <li>2 Mio. davon werden automatisch in die Liquidität gegeben</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Kaufen</h2>
+            <p><a href="https://pancakeswap.finance" target="_blank">Auf PancakeSwap handeln</a></p>
+        </div>
+    </div>
+
+    <script>
+        async function connectWallet() {
+            if (typeof window.ethereum !== 'undefined') {
+                try {
+                    await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    alert('Wallet verbunden!');
+                } catch (err) {
+                    alert('Verbindung abgelehnt.');
+                }
+            } else {
+                window.open("https://metamask.app.link/dapp/diablocoin.github.io/diablocoin-site", "_blank");
+            }
+        }
+    </script>
+</body>
+</html>
