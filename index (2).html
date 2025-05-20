@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Diablocoin (DBC)</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #0d0d0d;
+      color: white;
+      text-align: center;
+    }
+    header {
+      padding: 20px;
+      background: #1a1a1a;
+    }
+    h1 {
+      color: #e60000;
+    }
+    .container {
+      padding: 30px;
+    }
+    button {
+      background: #e60000;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+    }
+    .tokenomics {
+      text-align: left;
+      max-width: 600px;
+      margin: 30px auto;
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    a {
+      color: #e60000;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Diablocoin (DBC)</h1>
+    <p>Die Zukunft der dezentralen Macht auf der Binance Smart Chain</p>
+    <button onclick="connectWallet()">Wallet mit MetaMask verbinden</button>
+    <p id="walletAddress" style="margin-top:10px; color:#00ffcc;"></p>
+  </header>
+
+  <div class="container">
+    <h2>Tokenomics</h2>
+    <div class="tokenomics">
+      <ul>
+        <li>Total Supply: 100,000,000 DBC</li>
+        <li>3% Burn bei jeder Transaktion</li>
+        <li>3% Entwickler (0x2D64DeFb96958fD2C4266551bA2545A83d45362F)</li>
+        <li>1% Airdrop Pool</li>
+        <li>15 Mio. Entwickler-Tokens gesperrt (3 Monate)</li>
+        <li>2 Mio. davon werden automatisch in die Liquidität gegeben</li>
+      </ul>
+    </div>
+
+    <h2>Kaufen</h2>
+    <p><a href="https://pancakeswap.finance/swap" target="_blank">Auf PancakeSwap handeln</a></p>
+
+    <h2>Mehr Informationen</h2>
+    <p><a href="#">Whitepaper herunterladen (bald)</a></p>
+    <p><a href="https://bscscan.com/address/0x2D64DeFb96958fD2C4266551bA2545A83d45362F" target="_blank">Vertrag auf BscScan</a></p>
+  </div>
+
+  <script>
+    async function connectWallet() {
+      if (window.ethereum) {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          const wallet = accounts[0];
+          document.getElementById("walletAddress").textContent = "Verbunden mit: " + wallet;
+        } catch (error) {
+          alert("Verbindung wurde abgelehnt.");
+        }
+      } else {
+        alert("MetaMask nicht gefunden. Bitte installiere MetaMask.");
+      }
+    }
+  </script>
+</body>
+</html>
